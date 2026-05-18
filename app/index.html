@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Universal Game Launcher</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Universal Mac Game Launcher</p>
+          <h1>Drop almost anything. Launch the best way available.</h1>
+          <p class="lede">
+            Electron, NW.js, TyranoScript, RPG Maker, Ren'Py, KiriKiri, Unity, Godot,
+            installers, and ISO images. Native runtime first. Whisky when needed.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="pickButton" class="primary">Choose Games or Installers</button>
+          <button id="refreshButton" class="ghost">Refresh Library</button>
+        </div>
+      </section>
+
+      <section id="dropZone" class="drop-zone">
+        <div class="drop-inner">
+          <div class="drop-badge">Drag and Drop</div>
+          <h2>Folders, `.exe`, `.msi`, or `.iso`</h2>
+          <p>
+            The launcher fingerprints the engine, saves a profile, and prepares native or Whisky launch flow.
+          </p>
+        </div>
+      </section>
+
+      <section class="status-row">
+        <div class="status-card">
+          <span class="status-label">Native runtimes</span>
+          <strong id="runtimeSummary">Checking installed tools…</strong>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Current focus</span>
+          <strong>False positives are deprioritized below native engine markers.</strong>
+        </div>
+      </section>
+
+      <section class="library">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Saved Profiles</p>
+            <h2>Recent Games</h2>
+          </div>
+          <p id="libraryCount" class="meta">0 items</p>
+        </div>
+        <div id="emptyState" class="empty-state">
+          Drop your first game or installer to create a launch profile.
+        </div>
+        <div id="profiles" class="profiles"></div>
+      </section>
+    </main>
+
+    <template id="profileTemplate">
+      <article class="profile-card">
+        <div class="profile-head">
+          <div>
+            <p class="profile-name"></p>
+            <p class="profile-path"></p>
+            <p class="profile-target"></p>
+          </div>
+          <div class="badge-cluster">
+            <span class="badge engine-badge"></span>
+            <span class="badge strategy-badge"></span>
+            <span class="badge status-badge"></span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <p class="profile-evidence"></p>
+          <p class="profile-error"></p>
+        </div>
+        <div class="profile-actions">
+          <button class="primary launch-button">Launch</button>
+          <button class="ghost rescan-button">Rescan</button>
+          <button class="ghost reveal-button">Reveal</button>
+          <button class="ghost runtime-button">Download Runtime</button>
+          <button class="danger crossover-button">Try in CrossOver</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./renderer.js"></script>
+  </body>
+  </html>

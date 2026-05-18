@@ -1,0 +1,15 @@
+{
+  "name": "universal-game-launcher",
+  "version": "0.1.0",
+  "description": "A drag-and-drop macOS launcher for indie games across multiple engines and runtimes.",
+  "main": "electron/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "open -na /Applications/Electron.app --args .",
+    "package:mac": "node scripts/package-mac.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
